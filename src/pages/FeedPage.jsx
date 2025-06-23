@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../api";
 import VideoCard from "../components/VideoCard";
+import "./FeedPage.css"; 
 
 export default function FeedPage() {
   const [videos, setVideos] = useState([]);
@@ -12,16 +13,9 @@ export default function FeedPage() {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Public Feed</h2>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "1.5rem",
-          marginTop: "1rem",
-        }}
-      >
+    <div className="feed-container">
+      <h2 className="feed-title">🎥 Public Video Feed</h2>
+      <div className="video-grid">
         {videos.map((video) => (
           <VideoCard key={video._id} video={video} />
         ))}

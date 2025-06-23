@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import API from "../api";
 import { useNavigate } from "react-router-dom";
+import "./UploadPage.css";
 
 export default function UploadPage() {
   const [data, setData] = useState({ title: "", description: "", video: null });
@@ -45,17 +45,37 @@ export default function UploadPage() {
   };
 
   return (
-    <div>
-      <h2>Upload Video</h2>
-      <input name="title" placeholder="Title" onChange={handleChange} /><br />
-      <input name="description" placeholder="Description" onChange={handleChange} /><br />
-      <input type="file" name="video" onChange={handleChange} /><br />
+    <div className="upload-wrapper">
+      <div className="upload-container">
+        <h2>Upload Video</h2>
+        <input
+          name="title"
+          placeholder="Title"
+          onChange={handleChange}
+          className="upload-input"
+        />
+        <input
+          name="description"
+          placeholder="Description"
+          onChange={handleChange}
+          className="upload-input"
+        />
+        <label  htmlFor="file-upload" className="file-label">
+          {data.video ? data.video.name : "Choose File"}
+        </label>
+        <input
+          id="file-upload"
+          type="file"
+          name="video"
+          onChange={handleChange}
+        />
 
-      {loading ? (
-        <p>Uploading... Please wait ⏳</p>
-      ) : (
-        <button onClick={handleUpload}>Upload</button>
-      )}
+        {loading ? (
+          <p>Uploading... Please wait ⏳</p>
+        ) : (
+          <button onClick={handleUpload}>Upload</button>
+        )}
+      </div>
     </div>
   );
 }

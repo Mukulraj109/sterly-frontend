@@ -1,0 +1,31 @@
+.video-card {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #f8fafc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+}
+
+.video-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.video-element,
+.video-thumbnail {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.video-author {
+  margin-top: 0.75rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
